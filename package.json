@@ -1,6 +1,18 @@
 {
   "name": "as-is-app-spa",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aml-fakhry/AsIsApp_SPA.git"
+  },
+  "keywords": [
+    ""
+  ],
+  "author": "aml_fakhri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aml-fakhry/AsIsApp_SPA/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
