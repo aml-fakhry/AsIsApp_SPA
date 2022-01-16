@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+}
+.nav-wrapper {
+  background-color: #692dc1;
+}
+nav ul a {
+  font-size: 1.5rem;
+}
