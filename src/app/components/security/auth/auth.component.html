@@ -14,79 +14,10 @@
       <!-- form -->
       <div class="row center col l10" id="register-page">
         <div class="wrapper card col l6 offset-l4" id="reg">
-          <form action="#">
-            <div class="field">
-              <input type="text" required />
-              <label>Email Address</label>
-            </div>
-            <div class="field">
-              <input type="password" required />
-              <label>Password</label>
-            </div>
-            <div class="content">
-              <div class="checkbox">
-                <label>
-                  <input id="indeterminate-checkbox" type="checkbox" />
-                  <span>Remember me</span>
-                </label>
-              </div>
-              <div class="pass-link"><a href="#">Forgot password?</a></div>
-            </div>
-            <div class="field">
-              <input type="submit" value="Login" />
-            </div>
-            <div class="signup-link">
-              Not a member? <a href="#signup">Signup now</a>
-            </div>
-          </form>
+          <app-login></app-login>
         </div>
         <div class="wrapper card col l6 offset-l4" id="signup">
-          <form action="#">
-            <div class="field">
-              <input type="text" required />
-              <label>Name</label>
-            </div>
-            <div class="field">
-              <input type="text" required />
-              <label>Email Address</label>
-            </div>
-
-            <div class="field">
-              <input type="text" required />
-              <label>Phone Number</label>
-            </div>
-            <div class="field">
-              <input type="password" required />
-              <label>Password</label>
-            </div>
-            <div class="field">
-              <input type="password" required />
-              <label>Confirm Password</label>
-            </div>
-            <div class="content">
-              <div>
-                <p>Gander</p>
-              </div>
-              <p>
-                <label>
-                  <input name="group1" type="radio" checked />
-                  <span>Male</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input name="group1" type="radio" />
-                  <span>Female</span>
-                </label>
-              </p>
-            </div>
-            <div class="field">
-              <input type="submit" value="signup" />
-            </div>
-            <div class="signup-link">
-              have a account? <a href="#reg">login now</a>
-            </div>
-          </form>
+          <app-signup></app-signup>
         </div>
       </div>
     </div>

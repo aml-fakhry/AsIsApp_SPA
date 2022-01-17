@@ -2,5 +2,5 @@ maiger minor batch
 ^nearest maiger
 ~nearest patch
 ng g m auth --flat --routing //in same file auth create module routing
-ng g c components/login --skip-tests --module=components/security/auth/auth.module.ts
+ng g c components/security/signup --skip-tests --module=components/security/auth/auth.module
 //create components in auth folder add them in deceleration in auth module.
