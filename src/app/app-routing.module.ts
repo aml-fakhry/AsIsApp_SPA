@@ -4,7 +4,7 @@ import { SignupComponent } from './components/security/signup/signup.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('./components/security/auth/auth.module').then(
         (m) => m.AuthModule
