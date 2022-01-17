@@ -27,7 +27,7 @@ html,body{
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
 .wrapper form{
-  padding: 44px 36px 76px 18px;
+  padding: 26px 36px 76px 18px
 }
 #login{
   padding: 25px;
@@ -128,4 +128,6 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
-
+.notify{
+  text-decoration: underline
+}
