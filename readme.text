@@ -4,3 +4,4 @@ maiger minor batch
 ng g m auth --flat --routing //in same file auth create module routing
 ng g c components/security/signup --skip-tests --module=components/security/auth/auth.module
 //create components in auth folder add them in deceleration in auth module.
+// ng g s services/auth --skipTests

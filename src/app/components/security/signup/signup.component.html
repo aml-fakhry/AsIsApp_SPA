@@ -14,22 +14,22 @@
       <!-- form -->
       <div class="row center col l10" id="register-page">
         <div class="wrapper card col l6 offset-l4" id="login">
-          <form action="#">
+          <form [formGroup]="signupForm" novalidate (ngSubmit)="create()">
             <div class="field">
-              <input type="text" required />
+              <input type="text" formControlName="name" required />
               <label>Name</label>
             </div>
             <div class="field">
-              <input type="text" required />
+              <input type="text" formControlName="email" required />
               <label>Email Address</label>
             </div>
 
             <div class="field">
-              <input type="text" required />
+              <input type="text" formControlName="phone" required />
               <label>Phone Number</label>
             </div>
             <div class="field">
-              <input type="password" required />
+              <input type="password" formControlName="password" required />
               <label>Password</label>
             </div>
             <div class="field">
