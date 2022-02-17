@@ -16,7 +16,7 @@
         <div class="wrapper card col l6 offset-l4" id="login">
           <form [formGroup]="signupForm" novalidate (ngSubmit)="create()">
             <div class="field">
-              <input type="text" formControlName="name" required />
+              <input type="text" formControlName="username" required />
               <label>Name</label>
             </div>
             <div class="field">
@@ -32,10 +32,10 @@
               <input type="password" formControlName="password" required />
               <label>Password</label>
             </div>
-            <div class="field">
-              <input type="password" required />
-              <label>Confirm Password</label>
-            </div>
+            <!--  <div class="field">
+              <input type="text" required />
+              <label>Role</label>
+            </div> -->
             <div class="content">
               <div>
                 <p>Gander</p>
