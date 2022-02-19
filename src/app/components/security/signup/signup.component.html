@@ -65,7 +65,11 @@
               </p>
             </div>
             <div class="field">
-              <input type="submit" value="signup" />
+              <input
+                type="submit"
+                value="signup"
+                onclick="M.toast({html: 'I am a toast',classes: 'rounded'})"
+              />
             </div>
             <div class="signup-link">
               have a account? <a routerLink="/signup">login now</a>
@@ -74,9 +78,8 @@
               By click
               <span style="font-weight: bolder; color: #837d7d">sign up</span>,
               you are in agreement of the<span class="notify">
-                Terms of use
-              </span>
-              and <span class="notify">Privacy policy</span> .
+                Terms of use </span
+              >and <span class="notify">Privacy policy</span> .
             </p>
           </form>
         </div>

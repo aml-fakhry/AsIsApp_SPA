@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as M from 'materialize-css';
 import { AuthService } from './../../../services/auth.service';
 
 @Component({
@@ -14,9 +10,13 @@ import { AuthService } from './../../../services/auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
-  constructor(private authService: AuthService, private builder: FormBuilder) {}
+  constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.init();
+    const tabs = document.querySelectorAll('.tabs');
+    if (tabs) {
+      M.Tabs.init(tabs, {});
+    }
   }
 
   init() {
