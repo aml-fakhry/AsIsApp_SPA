@@ -10,6 +10,8 @@ import { AuthService } from './../../../services/auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  msgError!: string;
+
   constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.init();
@@ -30,8 +32,19 @@ export class SignupComponent implements OnInit {
   }
   create() {
     console.log(this.signupForm?.value);
-    this.authService.create(this.signupForm?.value).subscribe((data) => {
-      console.log({ data });
-    });
+    this.authService.create(this.signupForm?.value).subscribe(
+      (data) => {
+        console.log({ data });
+
+        // data.errors ? (this.msgError = data.errors[0].detail) : true;
+      },
+      (err) => {
+        console.log(err.error.errors[0].detail);
+
+        err.error.errors
+          ? (this.msgError = err.error.errors[0].detail)
+          : (this.msgError = 'Created Done');
+      }
+    );
   }
 }

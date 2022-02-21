@@ -11,26 +11,81 @@
           </ul>
         </div>
       </nav>
+      <h6 class="center-align red-text text-darken-4">{{ msgError }}</h6>
       <!-- form -->
       <div class="row center col l10" id="register-page">
         <div class="wrapper card col l6 offset-l4" id="login">
           <form [formGroup]="signupForm" novalidate (ngSubmit)="create()">
-            <div class="field">
-              <input type="text" formControlName="username" required />
+            <div class="input-field col s12">
+              <input
+                type="text"
+                formControlName="username"
+                class="validate"
+                required
+              />
               <label>Name</label>
+              <span
+                class="helper-text"
+                *ngIf="
+                  !signupForm.controls['username'].valid &&
+                  signupForm.controls['username'].touched
+                "
+                >username is required</span
+              >
             </div>
-            <div class="field">
-              <input type="text" formControlName="email" required />
+            <div class="input-field col s12">
+              <input
+                type="text"
+                formControlName="email"
+                class="validate"
+                required
+              />
               <label>Email Address</label>
+              <span
+                class="helper-text"
+                *ngIf="
+                  !signupForm.controls['email'].valid &&
+                  signupForm.controls['email'].touched
+                "
+              >
+                Email is required</span
+              >
             </div>
-
-            <div class="field">
-              <input type="text" formControlName="phone" required />
+            <div class="input-field col s12">
+              <input
+                type="text"
+                formControlName="phone"
+                class="validate"
+                required
+              />
               <label>Phone Number</label>
+              <span
+                class="helper-text"
+                *ngIf="
+                  !signupForm.controls['phone'].valid &&
+                  signupForm.controls['phone'].touched
+                "
+              >
+                Phone number is required</span
+              >
             </div>
-            <div class="field">
-              <input type="password" formControlName="password" required />
+            <div class="input-field col s12">
+              <input
+                type="password"
+                formControlName="password"
+                class="validate"
+                required
+              />
               <label>Password</label>
+              <span
+                class="helper-text"
+                *ngIf="
+                  !signupForm.controls['password'].valid &&
+                  signupForm.controls['password'].touched
+                "
+              >
+                Password is required</span
+              >
             </div>
             <!--  <div class="field">
               <input type="text" required />
@@ -43,7 +98,7 @@
               <p>
                 <label>
                   <input
-                    name="group1"
+                    name="gender"
                     type="radio"
                     formControlName="gender"
                     value="male"
@@ -55,7 +110,7 @@
               <p>
                 <label>
                   <input
-                    name="group1"
+                    name="gender"
                     type="radio"
                     formControlName="gender"
                     value="female"
@@ -67,8 +122,8 @@
             <div class="field">
               <input
                 type="submit"
+                [disabled]="!signupForm.valid"
                 value="signup"
-                onclick="M.toast({html: 'I am a toast',classes: 'rounded'})"
               />
             </div>
             <div class="signup-link">
