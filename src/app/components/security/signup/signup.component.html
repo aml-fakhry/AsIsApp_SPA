@@ -11,7 +11,12 @@
           </ul>
         </div>
       </nav>
-      <h6 class="center-align red-text text-darken-4">{{ msgError }}</h6>
+      <div class="progress" *ngIf="showPreloader">
+        <div class="indeterminate"></div>
+      </div>
+      <h6 class="center-align red-text text-darken-4">
+        {{ msgError }}
+      </h6>
       <!-- form -->
       <div class="row center col l10" id="register-page">
         <div class="wrapper card col l6 offset-l4" id="login">

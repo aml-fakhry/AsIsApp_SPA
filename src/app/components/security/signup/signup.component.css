@@ -97,6 +97,10 @@ form .field input[type="submit"][disabled]{
   color: #666666;
   cursor: not-allowed;
 }
+.progress{
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  margin-top: 1px;
+}
 
 form .field input[type="submit"]{
   color: #fff;

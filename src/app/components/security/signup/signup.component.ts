@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as M from 'materialize-css';
 import { AuthService } from './../../../services/auth.service';
 
@@ -11,14 +12,10 @@ import { AuthService } from './../../../services/auth.service';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   msgError!: string;
-
-  constructor(private authService: AuthService) {}
+  showPreloader!: boolean;
+  constructor(private authService: AuthService, private router: Router) {}
   ngOnInit(): void {
     this.init();
-    const tabs = document.querySelectorAll('.tabs');
-    if (tabs) {
-      M.Tabs.init(tabs, {});
-    }
   }
 
   init() {
@@ -31,20 +28,18 @@ export class SignupComponent implements OnInit {
     });
   }
   create() {
-    console.log(this.signupForm?.value);
-    this.authService.create(this.signupForm?.value).subscribe(
-      (data) => {
+    // console.log(this.signupForm?.value);
+    this.showPreloader = true;
+    this.authService.create(this.signupForm?.value).subscribe({
+      next: (data) => {
         console.log({ data });
-
-        // data.errors ? (this.msgError = data.errors[0].detail) : true;
+        this.signupForm.reset();
+        this.router.navigate(['']); /* navigate to login component. */
+        this.msgError = '';
       },
-      (err) => {
-        console.log(err.error.errors[0].detail);
-
-        err.error.errors
-          ? (this.msgError = err.error.errors[0].detail)
-          : (this.msgError = 'Created Done');
-      }
-    );
+      error: (e) => {
+        e.error.errors ? (this.msgError = e.error.errors[0].detail) : '';
+      },
+    });
   }
 }
