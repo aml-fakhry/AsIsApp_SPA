@@ -11,6 +11,13 @@ const routes: Routes = [
       ),
   },
   { path: 'signup', component: SignupComponent },
+  {
+    path: 'streams',
+    loadChildren: () =>
+      import('./components/streams/streams.module').then(
+        (m) => m.StreamsModule
+      ),
+  },
 ];
 
 @NgModule({
