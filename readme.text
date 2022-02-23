@@ -6,3 +6,4 @@ ng g c components/security/signup --skip-tests --module=components/security/auth
 //create components in auth folder add them in deceleration in auth module.
 // ng g s services/auth --skipTests
 //ng g c streams --skip-tests --module=streams/streams.module
+//ng g g(guard) auth

@@ -1,5 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TokensService } from './services/tokens.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,11 @@ import { Component } from '@angular/core';
     ]),
   ],
 })
-export class AppComponent {
-  title = 'AsIsApp_SPA';
+export class AppComponent implements OnInit {
+  constructor(private tokensService: TokensService, private router: Router) {}
+  ngOnInit(): void {
+    this.tokensService.getToken()
+      ? this.router.navigate(['streams'])
+      : this.router.navigate(['']);
+  }
 }
