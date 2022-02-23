@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
     this.init();
   }
 
+  /* Init method. */
   init() {
     this.signupForm = new FormGroup({
       username: new FormControl('', Validators.required),
@@ -27,7 +28,9 @@ export class SignupComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
   }
-  create() {
+
+  /* Create user */
+  signupUser() {
     // console.log(this.signupForm?.value);
     this.showPreloader = true;
     this.authService.create(this.signupForm?.value).subscribe({

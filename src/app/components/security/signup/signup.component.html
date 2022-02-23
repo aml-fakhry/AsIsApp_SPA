@@ -20,7 +20,7 @@
       <!-- form -->
       <div class="row center col l10" id="register-page">
         <div class="wrapper card col l6 offset-l4" id="login">
-          <form [formGroup]="signupForm" novalidate (ngSubmit)="create()">
+          <form [formGroup]="signupForm" (ngSubmit)="signupUser()" novalidate>
             <div class="input-field col s12">
               <input
                 type="text"

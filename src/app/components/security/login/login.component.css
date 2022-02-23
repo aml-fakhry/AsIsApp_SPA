@@ -1,0 +1,16 @@
+
+.helper-text{
+  float: left;
+  color: #e14242;
+}
+.progress{
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  margin-top: 1px;
+}
+form .field input[type="submit"]:disabled,
+form .field input[type="submit"][disabled]{
+  border: 1px solid #999999;
+  background:linear-gradient(-135deg, #e5dbe4, #8d9ced);
+  color: #666666;
+  cursor: not-allowed;
+}
