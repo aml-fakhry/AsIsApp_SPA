@@ -1,9 +1,10 @@
 <div class="animated fadeIn delay-1s">
-  <p class="animated">streams works!</p>
-  <button (click)="logOut()">logOut</button>
-  <p>streams works!</p>
-  <p>streams works!</p>
-  <p>streams works!</p>
-  <p>streams works!</p>
-  <p>streams works!</p>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-navbar></app-navbar>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

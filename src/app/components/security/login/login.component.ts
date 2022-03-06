@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { TokensService } from './../../../services/tokens.service';
@@ -12,13 +13,15 @@ import { TokensService } from './../../../services/tokens.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  rememberMe!: boolean;
   msgError!: string;
   showPreloader!: boolean;
 
   constructor(
     private authService: AuthService,
     private tokensService: TokensService,
-    private router: Router
+    private router: Router,
+    private cookie: CookieService
   ) {}
 
   ngOnInit(): void {
