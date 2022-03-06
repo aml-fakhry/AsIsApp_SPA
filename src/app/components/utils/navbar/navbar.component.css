@@ -50,3 +50,16 @@ mat-sidenav-container {
   height: calc(100vh - 65px);
 }
 
+.bell{
+  margin-bottom: -10px;
+  margin-left: 5px;
+}
+
+.mat-sidenav{
+  margin: 0px;
+  width: 20%;
+  border-radius: 0px;
+  background:#955999;
+}
+
+

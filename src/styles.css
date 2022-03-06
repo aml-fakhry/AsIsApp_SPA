@@ -2,7 +2,9 @@
 @import "../node_modules/materialize-css/dist/css/materialize.min.css";
 @import url('assets/style.css');
 @import url('assets/animate.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet');
 
+/* last my style */
 html, body
   {
    height: 100%;

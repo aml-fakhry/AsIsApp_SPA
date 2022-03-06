@@ -8,6 +8,9 @@ import { TokensService } from 'src/app/services/tokens.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  events: string[] = [];
+  opened!: boolean;
+
   constructor(private tokensService: TokensService, private router: Router) {}
 
   ngOnInit() {}
