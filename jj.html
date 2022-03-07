@@ -5,7 +5,7 @@
       class="example-icon"
       aria-label="icon-button with menu icon"
     >
-      <button mat-button fxShow="true" fxHide.gt-sm>
+      <button mat-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
     </button>
@@ -50,3 +50,30 @@
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<!--side navbar component  -->
+
+<mat-sidenav-container fxFlexFill>
+  <div class="row">
+    <mat-sidenav
+      class="mat-sidenav"
+      #sidenav
+      mode="side"
+      [(opened)]="opened"
+      (opened)="events.push('open!')"
+      (closed)="events.push('close!')"
+    >
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a href="#" mat-list-item>Menu Item 1</a>
+        <a href="#" mat-list-item>Menu Item 2</a>
+        <a href="#" mat-list-item>Menu Item 3</a>
+        <a href="#" mat-list-item>Menu Item 4</a>
+        <a href="#" mat-list-item>Menu Item 5</a>
+        <a href="#" mat-list-item>Menu Item 6</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+    <div *ngFor="let e of events">{{ e }}</div>
+  </div>
+</mat-sidenav-container>
