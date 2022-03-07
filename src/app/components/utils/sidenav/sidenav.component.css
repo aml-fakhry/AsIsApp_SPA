@@ -1,0 +1,23 @@
+.collection{
+  /* min-width: 280px; */
+  margin-left: -10px;
+  margin-top: 0px;
+}
+.collection-header{
+max-height: 44px;
+text-align: center;
+padding: 10px 15px 10px 4px !important;
+font-weight: 400 !important;
+}
+span{
+  color: #9255c7 !important;
+  font-family: sans-serif;
+}
+.count{
+  margin-left: 5px;
+  color: #bf7f2a !important;
+  font-weight: initial;
+}
+.secondary-content{
+  color: #c052c1;
+}
