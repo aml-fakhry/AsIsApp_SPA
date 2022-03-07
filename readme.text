@@ -7,3 +7,4 @@ ng g c components/security/signup --skip-tests --module=components/security/auth
 // ng g s services/auth --skipTests
 //ng g c streams --skip-tests --module=streams/streams.module
 //ng g g(guard) auth
+//ng g c sidenav --skip--tests --module=streams/streams.module
