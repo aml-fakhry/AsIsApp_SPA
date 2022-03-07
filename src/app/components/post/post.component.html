@@ -1,15 +1,25 @@
+<div class="progress" *ngIf="showPreloader">
+  <div class="indeterminate"></div>
+</div>
+<h6 class="center-align red-text text-darken-4">
+  {{ msgError }}
+</h6>
 <div class="row">
   <div class="col s12">
     <div class="card post-div">
       <div class="card-content">
-        <form>
+        <form [formGroup]="postForm" novalidate (ngSubmit)="create()">
           <div class="row form-div">
             <div class="input-field col s12 post-content">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea
+                id="textarea1"
+                class="materialize-textarea"
+                formControlName="content"
+              ></textarea>
               <label for="textarea1">What's on your mind, Aml?</label>
               <div class="row input-row">
                 <div class="col s6">
-                  <div class="file-field input-field">
+                  <!-- <div class="file-field input-field">
                     <div class="btn photo-btn">
                       <span
                         ><i class="material-icons left">image</i> Photo</span
@@ -19,10 +29,13 @@
                     <div class="file-path-wrapper">
                       <input class="file-path validate" type="text" />
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="col s6">
-                  <button class="btn waves-effect post-btn">
+                  <button
+                    class="btn waves-effect post-btn"
+                    [disabled]="!postForm.valid"
+                  >
                     <i class="material-icons left">message</i>Post
                   </button>
                 </div>
