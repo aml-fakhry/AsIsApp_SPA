@@ -44,4 +44,11 @@ export class PostComponent implements OnInit {
       },
     });
   }
+
+  // getById() {
+  //   this.postService.getById(this.postForm.).subscribe({
+  //     next: (data) => {},
+  //     error: (er) => {},
+  //   });
+  // }
 }

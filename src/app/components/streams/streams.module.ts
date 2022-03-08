@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { StreamsRoutingModule } from './streams-routing.module';
 import { StreamsComponent } from './streams/streams.component';
@@ -10,6 +11,8 @@ import { SidenavComponent } from '../utils/sidenav/sidenav.component';
 import { TokensService } from 'src/app/services/tokens.service';
 import { PostComponent } from '../post/post.component';
 import { PostsComponent } from '../posts/posts.component';
+import { PostService } from 'src/app/services/post.service';
+import { TokenInterceptor } from 'src/app/services/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,13 @@ import { PostsComponent } from '../posts/posts.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [TokensService],
+  providers: [
+    TokensService,
+    PostService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+    },
+  ],
 })
 export class StreamsModule {}
