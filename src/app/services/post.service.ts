@@ -21,6 +21,24 @@ export class PostService {
     });
   }
 
+  getUserPosts(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/post/user-posts`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.tokensService.getToken(),
+      }),
+    });
+  }
+
+  getAllPosts(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/post/posts`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.tokensService.getToken(),
+      }),
+    });
+  }
+
   getById(id: any): Observable<any> {
     return this.http.get(`${environment.apiUrl}/post/:${id}`, {
       headers: new HttpHeaders({

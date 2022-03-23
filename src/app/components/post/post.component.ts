@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostService } from './../../services/post.service';
 import { TokensService } from 'src/app/services/tokens.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-post',
@@ -13,14 +14,18 @@ export class PostComponent implements OnInit {
   postForm!: FormGroup;
   msgError!: string;
   showPreloader!: boolean;
+  user: any = {};
+
   constructor(
     private postService: PostService,
     private tokensService: TokensService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.init();
+    this.getUserById();
   }
   init() {
     this.postForm = new FormGroup({
@@ -39,7 +44,21 @@ export class PostComponent implements OnInit {
         console.log({ data });
       },
       error: (err) => {
-        this.showPreloader = false;
+        // this.showPreloader = false;
+        err.error ? (this.msgError = err.error.detail) : '';
+      },
+    });
+  }
+
+  getUserById() {
+    const payload = this.tokensService.getPayload();
+    this.authService.getUserById(payload.userId).subscribe({
+      next: (data) => {
+        this.user = data.data;
+        console.log('pp', this.user);
+      },
+      error: (err) => {
+        console.log({ err });
         err.error ? (this.msgError = err.error.detail) : '';
       },
     });

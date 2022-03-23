@@ -35,6 +35,7 @@ import { TokenInterceptor } from 'src/app/services/token-interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true,
     },
   ],
 })

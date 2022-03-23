@@ -1,1 +1,7 @@
-<p>posts works!</p>
+<div *ngFor="let post of posts">
+  <!-- <div *ngFor="let objCarList of post.carList"> -->
+  <span>{{ post.username }}</span>
+  <span>{{ post.content }}</span>
+  <span>{{ post.createdAt }}</span>
+  <!-- </div> -->
+</div>
