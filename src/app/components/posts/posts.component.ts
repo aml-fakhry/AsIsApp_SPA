@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
-import { TokensService } from 'src/app/services/tokens.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-posts',
@@ -18,6 +17,9 @@ export class PostsComponent implements OnInit {
     console.log('kk', this.getAllPosts());
   }
 
+  /**
+   * Gets all posts.
+   */
   getAllPosts() {
     this.postService.getAllPosts().subscribe({
       next: (data) => {
@@ -28,5 +30,11 @@ export class PostsComponent implements OnInit {
         err.error ? (this.msgError = err.error.detail) : '';
       },
     });
+  }
+
+  /* Convert data to display as time ago */
+  timeAgo(time: any) {
+    moment.locale('en'); // if Arabic can write ar
+    return moment(time).fromNow();
   }
 }
