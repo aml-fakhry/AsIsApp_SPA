@@ -13,6 +13,11 @@ export interface SignUpInput {
   email: String;
 
   /**
+   * Gets or sets the password of the user sign up.
+   */
+  password: String;
+
+  /**
    * Gets or sets the phone of the user sign up.
    */
   phone: String;
@@ -21,9 +26,4 @@ export interface SignUpInput {
    * Gets or sets the gender of the user sign up.
    */
   gender: String;
-
-  /**
-   * Gets or sets the password of the user sign up.
-   */
-  password: String;
 }
