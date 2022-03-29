@@ -21,4 +21,13 @@ export class TokensService {
   deleteToken() {
     return this.cookieService.delete('token');
   }
+
+  /* get payload */
+  getPayload() {
+    const token = this.getToken();
+    /**
+     * atob() method use to decode string- btoa() used to encode string.
+     */
+    return token ? JSON.parse(window.atob(token.split('.')[1])) : '';
+  }
 }
