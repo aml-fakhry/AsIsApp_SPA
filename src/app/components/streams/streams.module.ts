@@ -13,6 +13,7 @@ import { PostComponent } from '../post/post.component';
 import { PostsComponent } from '../posts/posts.component';
 import { PostService } from 'src/app/services/post.service';
 import { TokenInterceptor } from 'src/app/services/token-interceptor';
+import { SocketService } from 'src/app/services/socket.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TokenInterceptor } from 'src/app/services/token-interceptor';
       useClass: TokenInterceptor,
       multi: true,
     },
+    SocketService,
   ],
 })
 export class StreamsModule {}

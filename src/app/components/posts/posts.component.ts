@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import * as moment from 'moment';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,11 +11,16 @@ import * as moment from 'moment';
 export class PostsComponent implements OnInit {
   posts!: any;
   msgError!: string;
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private socketService: SocketService
+  ) {}
 
   ngOnInit(): void {
     this.getAllPosts();
-    console.log('kk', this.getAllPosts());
+    this.socketService.getSocket().on('reloadPage', () => {
+      this.getAllPosts();
+    });
   }
 
   /**
@@ -34,7 +40,7 @@ export class PostsComponent implements OnInit {
 
   /* Convert data to display as time ago */
   timeAgo(time: any) {
-    moment.locale('en'); // if Arabic can write ar
+    moment.locale('en'); /* if Arabic can write ar.*/
     return moment(time).fromNow();
   }
 }

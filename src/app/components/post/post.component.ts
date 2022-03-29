@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { PostService } from './../../services/post.service';
 import { TokensService } from 'src/app/services/tokens.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { io } from 'socket.io-client';
+import { environment } from 'src/environments/environment';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-post',
@@ -12,16 +15,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PostComponent implements OnInit {
   postForm!: FormGroup;
+  user: any = {};
   msgError!: string;
   showPreloader!: boolean;
-  user: any = {};
+  socket: any;
 
   constructor(
     private postService: PostService,
     private tokensService: TokensService,
     private router: Router,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private socketService: SocketService
+  ) {
+    this.socket = io(environment.socketHost);
+  }
 
   ngOnInit(): void {
     this.init();
@@ -39,6 +46,7 @@ export class PostComponent implements OnInit {
     this.postService.create(this.postForm?.value).subscribe({
       next: (data) => {
         this.postForm.reset();
+        this.socketService.getSocket().emit('reload', {});
         this.router.navigate(['streams']); /* navigate to streams component. */
         this.msgError = '';
         console.log({ data });
