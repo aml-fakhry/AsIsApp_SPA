@@ -21,6 +21,10 @@ export class PostService {
     });
   }
 
+  /**
+   * Get all user posts.
+   * @returns void
+   */
   getUserPosts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/post/user-posts`, {
       headers: new HttpHeaders({
@@ -30,6 +34,9 @@ export class PostService {
     });
   }
 
+  /**
+   * Get all posts.
+   */
   getAllPosts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/post/posts`, {
       headers: new HttpHeaders({
@@ -39,8 +46,27 @@ export class PostService {
     });
   }
 
-  getById(id: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/post/:${id}`, {
+  /**
+   *
+   * @param PostId the post id.
+   * @returns void
+   */
+  getById(PostId: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/post/:${PostId}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.tokensService.getToken(),
+      }),
+    });
+  }
+
+  /**
+   * Add like to specific post.
+   * @param PostId the post id to be liked.
+   * @returns void
+   */
+  addLike(PostId: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/post/like/${PostId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: this.tokensService.getToken(),

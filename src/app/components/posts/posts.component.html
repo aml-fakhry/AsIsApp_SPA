@@ -12,13 +12,17 @@
     <div class="col s12">
       <div class="card">
         <div class="card-image">
-          <img src="http://placeimg.com/600/400/nature" alt="post image" />
+          <img
+            src="http://placeimg.com/600/400/nature"
+            alt="post image"
+            style="max-height: 343px"
+          />
         </div>
         <div class="card-content post-text">
           <p>{{ post.content }}</p>
         </div>
         <div class="card-action">
-          <i class="material-icons">thumb_up</i>
+          <i class="material-icons" (click)="addLike(post._id)">thumb_up</i>
           <span class="icon-span">{{ post.totalLikes }}</span>
           <i class="material-icons">comment</i>
           <span class="icon-span">{{ post.comments.length }}</span>

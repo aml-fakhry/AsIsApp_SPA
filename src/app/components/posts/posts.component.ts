@@ -10,6 +10,7 @@ import { SocketService } from 'src/app/services/socket.service';
 })
 export class PostsComponent implements OnInit {
   posts!: any;
+
   msgError!: string;
   constructor(
     private postService: PostService,
@@ -42,5 +43,24 @@ export class PostsComponent implements OnInit {
   timeAgo(time: any) {
     moment.locale('en'); /* if Arabic can write ar.*/
     return moment(time).fromNow();
+  }
+
+  /**
+   * Add like to post.
+   * @param postId the id of the post.
+   */
+  addLike(postId: any) {
+    console.log({ postId });
+    this.postService.addLike(postId).subscribe({
+      next: (data) => {
+        this.posts = this.posts.map((post: any) =>
+          post._id === postId ? data.data : post
+        );
+      },
+      error: (err) => {
+        console.log({ err });
+        err.error ? (this.msgError = err.error.detail) : '';
+      },
+    });
   }
 }
