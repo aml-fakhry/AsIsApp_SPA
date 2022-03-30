@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000/api',
-  socketHost: 'http://localhost:3333',
+  socketHost: 'http://localhost:3000',
 };
 
 /*
