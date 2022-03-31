@@ -16,11 +16,17 @@ export class SocketService {
    * @returns socket.
    */
   getSocket() {
-    return (this.socket = io(environment.socketHost, {
+    this.socket = io(environment.socketHost, {
       extraHeaders: {
         'Content-Type': 'application/json',
         Authorization: this.tokensService.getToken(),
       },
-    }));
+    });
+
+    this.socket.on('disconnect', () => {
+      console.log('disconnect');
+    });
+
+    return this.socket;
   }
 }
