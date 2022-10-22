@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import * as moment from 'moment';
 import { SocketService } from 'src/app/services/socket.service';
+import { flatMap, uniq } from 'lodash';
 
 @Component({
   selector: 'app-posts',
@@ -53,14 +54,19 @@ export class PostsComponent implements OnInit {
     console.log({ postId });
     this.postService.addLike(postId).subscribe({
       next: (data) => {
-        this.posts = this.posts.map((post: any) =>
-          post._id === postId ? data.data : post
-        );
+        this.socketService.getSocket().emit('reload', {});
+        // this.posts = this.posts.map((post: any) =>
+        //   post._id === postId ? data.data : post
+        // );
       },
       error: (err) => {
         console.log({ err });
         err.error ? (this.msgError = err.error.detail) : '';
       },
     });
+  }
+
+  isUserInLikes() {
+    this.posts.some();
   }
 }

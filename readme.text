@@ -9,3 +9,7 @@ ng g c components/security/signup --skip-tests --module=components/security/auth
 //ng g g(guard) auth
 //ng g c sidenav --skip--tests --module=streams/streams.module
 //TODO slice name method
+
+
+ng g c products --module=sales/sales.module
+ng g m sales --routing
